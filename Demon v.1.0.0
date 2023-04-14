@@ -1,0 +1,201 @@
+local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
+
+local X = Material.Load({
+	Title = "Demon's Gui",
+	Style = 1,
+	SizeX = 300,
+	SizeY = 320,
+	Theme = "Mocha",
+	ColorOverrides = {
+		MainFrame = Color3.fromRGB(235,235,235)
+	}
+})
+
+local Y = X.New({
+	Title = "Demon :]"
+})
+
+local Z = X.New({
+	Title = "Lua Actually Made This XD"
+})
+
+local A = Y.Button({
+	Text = "Farm",
+	Callback = function()
+		local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character
+
+while true do
+  wait()
+  for i = 1,200 do
+    if Character:FindFirstChild("sword") then
+      Character.sword.Handle.up.RemoteEvent:FireServer()
+    else
+      LocalPlayer.Backpack.sword.Handle.up.RemoteEvent:FireServer()
+    end
+  end
+end
+
+	end,
+	Menu = {
+		Information = function(self)
+			X.Banner({
+				Text = "Using This Causes Your Ping To Get High!"
+			})
+		end
+	}
+})
+
+local A = Y.Button({
+	Text = "God Mode",
+	Callback = function()
+	loadstring(game:HttpGet('https://pastebin.com/raw/BQDG2crz'))()
+	end,
+	Menu = {
+		Information = function(self)
+			X.Banner({
+				Text = "God Mode Made By Lua."
+			})
+		end
+	}
+})
+
+local A = Y.Button({
+	Text = "Infinite Yield",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+	end,
+	Menu = {
+		Information = function(self)
+			X.Banner({
+				Text = "This function can get you banned in up-to-date servers; use at your own risk."
+			})
+		end
+	}
+})
+
+local A = Y.Button({
+	Text = "Sword Style",
+	Callback = function()
+		local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local backpack = player.Backpack
+local char = player.Character
+local hrp = char.HumanoidRootPart
+local hum = char.Humanoid
+local tween = game:GetService("TweenService")
+
+function gatherswords()
+    local swords = {}
+    for i, v in pairs(backpack:GetChildren())do
+        if(v:IsA"Tool")then
+            table.insert(swords,v)
+        end
+    end
+    for i, v in pairs(char:GetChildren())do
+        if(v:IsA"Tool")then
+            table.insert(swords,v)
+        end
+    end
+    return swords
+end
+
+local swords = gatherswords()
+
+for i, sword in pairs(swords) do
+    if(i~=#swords)then
+        sword.Parent = backpack
+        sword.Handle.Massless = true
+        sword.Grip = (sword.Grip*CFrame.new(1,0,-4.5)) * CFrame.Angles(2, (6.28/(#swords-1))*i, 0)
+    end
+    sword.Parent = char
+    end
+	end,
+	Menu = {
+		Information = function(self)
+			X.Banner({
+				Text = "Funny."
+			})
+		end
+	}
+})
+
+local A = Y.Button({
+	Text = "Fates Admin",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))()
+	end,
+	Menu = {
+		Information = function(self)
+			X.Banner({
+				Text = "use at your own risk."
+			})
+		end
+	}
+})
+
+local A = Y.Button({
+	Text = "Dark Hub V2",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/xFearLua/Dark-HUb-V2/main/goofy%20ahh'))()
+	end,
+	Menu = {
+		Information = function(self)
+			X.Banner({
+				Text = "easy peezy Lua makes the best guis"
+			})
+		end
+	}
+})
+
+local A = Y.Button({
+	Text = "DMG Sword",
+	Callback = function()
+		local player = game.Players.LocalPlayer
+local mouse = player:GetMouse()
+local backpack = player.Backpack
+local char = player.Character
+local hrp = char.HumanoidRootPart
+local hum = char.Humanoid
+local tween = game:GetService("TweenService")
+
+function gatherswords()
+    local swords = {}
+    for i, v in pairs(backpack:GetChildren())do
+        if(v:IsA"Tool")then
+            table.insert(swords,v)
+        end
+    end
+    for i, v in pairs(char:GetChildren())do
+        if(v:IsA"Tool")then
+            table.insert(swords,v)
+        end
+    end
+    return swords
+end
+
+local swords = gatherswords()
+
+for i, sword in pairs(swords) do
+    if(i~=#swords)then
+        sword.Parent = backpack
+        sword.Handle.Massless = true
+        sword.Grip = (sword.Grip*CFrame.new(0,0,-0.0)) * CFrame.Angles(0, (6.28/(#swords-1))*i, 0)
+    end
+    sword.Parent = char
+    sword.Handle.Touched:Connect(function(t)
+						if(t.Parent)and(t.Parent:FindFirstChild("Humanoid"))and(t.Parent.Name~=player.Name)then
+							sword.Handle.dmg.RemoteEvent:FireServer(t.Parent.Humanoid, player.leaderstats.Power.Value)
+						end
+					end)
+				end
+	end,
+	Menu = {
+		Information = function(self)
+			X.Banner({
+				Text = "This function can get you banned in up-to-date servers; use at your own risk."
+			})
+		end
+	}
+}) 
